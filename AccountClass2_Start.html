@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script type = "text/javascript">
+    //INSTRUCTIONS (Remember, use our in class code for the Television class as a guide!)
+    /*
+        1. Identify the constructor and set the following properties:
+            acctType
+            acctNumber
+            lastName
+            firstName
+            acctBal
+          using the five input parameters
+
+
+        2. Identify the withdraw function and code it using the deposit function as a guide.
+
+        3. Identify the changeName function and update it to utilize the parameters lname and fname.
+            It should build a proper output string
+
+        4. Identify the Javascript code in the body script.
+            Add code to:
+            a. create a new Account object (call it whatever valid variable name you like)
+            b. initialize it with the following arguments:
+                i. "S" as the account type
+                ii. 1376433 as the account number
+                iii. "Dunes" as the last name
+                iv. "Sandi" as the first name
+                v. $80.00 as the balance
+            c. display the updated information using the variable
+
+     */
+
+	function Account(type, num, lName, fName, bal) {
+		this.deposit = deposit;
+		this.withdraw = withdraw;
+		this.changeName = changeName;
+		this.inquire = inquire;
+		this.displayInfo = displayInfo;
+	}
+
+	function deposit(amt) {
+		this.acctBal = this.acctBal + amt;
+		document.write("New balance: $" + this.acctBal + BR);
+	}
+
+	function withdraw(amt) {
+	}
+
+	function changeName(lName, fName) {
+        //3.
+		document.write("The name has been changed to "
+			+ this.firstName + " " + this.lastName + BR);
+	}
+
+	function inquire() {
+		document.write("Balance: $" + this.acctBal + BR);
+	}
+
+	function displayInfo() {
+		document.write("Account type: " + this.acctType + BR);
+		document.write("Account #: " + this.acctNumber + BR);
+		document.write("Last Name: " + this.lastName + BR);
+
+		document.write("First Name: " + this.firstName + BR);
+
+		document.write("Balance $: " + this.acctBal + BR);
+
+	}
+</script>
+</head>
+<body>
+<script type = "text/javascript">
+	var BR = "<br />";
+
+	document.write("Account program." + BR);
+	document.write("This program creates an account." + BR);
+	document.write("It also modifies the account." + BR);
+
+    //4.
+
+	document.write("Thank you!" + BR);
+</script>
+</body>
+</html>

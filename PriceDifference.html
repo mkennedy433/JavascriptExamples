@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>-->
+<body>
+<!--HTML Code can go here-->
+
+<script type="text/javascript">
+    //Javascript code goes in here
+    var price2015 = 0;      //User input for 2015
+    var price2016 = 0;      //User input for 2016
+    var priceDiff;          //Calculated difference
+    var pctChange;          //Calculated % change
+
+    //Constants (even though we use "var")
+    var BR = "<br>";        //HTML break tag
+    var ES = "";            //empty string
+
+    //Get input
+    price2015 = prompt("Enter 2015 price", ES);
+    price2016 = prompt("Enter 2016 price", ES);
+
+    //Make sure input is numeric:
+    price2015 = parseFloat(price2015);
+    price2016 = parseFloat(price2016);
+
+    //Process
+    //Compute difference
+    priceDiff = price2016 - price2015;
+
+    //Compute change %
+    pctChange = 100.0 * (priceDiff/price2015);
+
+    //Give output
+    document.write("<h3>Difference</h3> is: " + priceDiff + BR);
+    document.write("% Change is: " + pctChange);
+
+</script>
+
+<!--HTML Code can go here-->
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sequential VS Binary</title>
+</head>
+<body>
+<script>
+    // a short program for distinguishing between two searching algorithms
+
+    var SIZE = 500;        //size of array
+    var index;             // loop variable
+    var searchValue;       //user input
+    var found;             //boolean flag
+    var ES = "";           // HTML constant
+    var BR = "<br>";       // HTML constant
+
+    //create an empty array
+    var squaresArray = new Array (SIZE);
+
+    // populate now h8er:
+    for ( index = 0; index < SIZE; index++) {
+        squaresArray[index] = index * index;
+        //COULD ALSO USE:  Math.power(index, 2)
+    }
+
+    //get search value for user:
+    searchValue = prompt("Enter # less than 250k to search", ES);
+    searchValue = parseInt(searchValue);
+
+    //perform SEQUENTIAL SEARCH
+  /*  index = 0;
+    found = false;
+
+    while ( index < SIZE && !(found) && squaresArray[index] <= searchValue) {
+        // 1. index cant exceed array length
+        // 2. if we find a perfect square we're done
+        // 3. once array value > search value we're done
+        document.write(squaresArray[index] + BR);
+
+        if (squaresArray[index] == searchValue) {
+            found = true;
+            document.write("PERFECT SQUARE!!!!!")
+        }
+        index++;
+    }
+   */
+
+    //perform a BINARY SEARCH
+    var low = 0;          //low end of array
+    var high = SIZE -1;   //high end
+
+    index = 0;
+    found = false;  //reset flags
+
+    while (low <= high && ! (found)) {
+        document.write(squaresArray[index] + " " + index + BR);
+
+        //find middle index:
+        index = Math.floor((low + high) / 2);
+
+        //test the middle index:
+        if(squaresArray[index] == searchValue) {
+            found = true;
+            document.write("PERFECT SQUARE");
+        }
+        else {
+            //no match, reset high or low
+            if(squaresArray[index] > searchValue) {
+                high = index - 1;
+            }
+            else {
+                low = index + 1 ;
+            }
+        }// end else
+    } // end while
+
+    if (!found) {
+        document.write ("NOT A PERFECT SQUARE");
+    }
+
+
+</script>
+</body>
+</html>

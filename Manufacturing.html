@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function process() {
+            var volume = document.getElementById("mForm").volume.value;
+            var temp = document.getElementById("mForm").temp.value;
+            var speed = document.getElementById("mForm").speed.value;
+
+            if ((volume > 1000 && speed < 15) || (temp <= 750 && speed > 15)) {
+                alert("STOP processing");
+            }
+            else {
+                alert("Resume processing...");
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+    <form id="mForm" action="" type="get">
+        Approximate Volume:
+        <input type="number" name="volume" min="800" max="1200" value="1000" required>
+        <br>
+        Approximate Temperature:
+        <input type="number" name="temp" min="500" max="1000" value="750" required>
+        <br>
+        Approximate Speed:
+        <input type="number" name="speed" min="0" max="20" value="15" required>
+        <br>
+        <input type="submit" id="submit" onclick="process()">
+    </form>
+</body>
+</html>

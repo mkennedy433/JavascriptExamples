@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Television Class</title>
+    <script type="text/javascript">
+
+        //Constructor function for Television class:
+        function Television(manufac, diag, price) {
+            //Set object properties
+            this.manufacturer = manufac;
+            this.diagonalSize = diag;
+            this.retailPrice = price;
+
+            //Set object methods
+            this.setValues = setValues;
+            this.displayInfo = displayInfo;
+            this.clearValues = clearValues;
+        }
+
+        function setValues(manufac, diag, price) {
+            //Update object properties
+            this.manufacturer = manufac;
+            this.diagonalSize = diag;
+            this.retailPrice = price;
+        }
+
+        function displayInfo() {
+            //Output properties
+            document.tvform.newPrice.value = this.retailPrice;
+            document.tvform.newSize.value = this.diagonalSize;
+            document.tvform.newManufacturer.value =
+                    this.manufacturer;
+        }
+
+        function clearValues() {
+            document.tvform.newPrice.value = "";
+            document.tvform.newSize.value = "";
+            document.tvform.newManufacturer.value = "";
+        }
+
+    </script>
+</head>
+<body>
+
+<form name="tvform" action="">
+    Price:
+    <input type="text" value="" name="newPrice" size = "40"/><br>
+    Screen size:
+    <input type="text" value="" name="newSize" size="40"/><br>
+    Manufacturer:
+    <input type="text" value="" name="newManufacturer" size="40"/><br>
+
+    <input type="button" value="set values" name="setVal"
+           onclick="" size="20"/><br>
+    <input type="button" value="get values" name="getVal"
+           onclick="myFirstTV.displayInfo()" size="20"/><br>
+    <input type="button" value="clear values" name="clearVal"
+           onclick="myFirstTV.clearValues();" size="20"/>
+
+</form>
+<script type="text/javascript">
+
+    //Create an "instance" of a Television:
+    var myFirstTV = new Television("Sony", 52, 999.99);
+
+    //Create another instance:
+    var myNextTV = new Television("", 0, 0);
+    myNextTV.setValues("LG", 55, 1099.99);
+
+    //myNextTV.displayInfo();
+    myFirstTV.displayInfo();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sorting Data</title>
+</head>
+<body>
+    <script>
+        var BR = "<br>";         //HTML
+        var ARRAYSIZE = 1000;
+        var maxElement;          // last element each pass
+        var index, index2;       // loop counters
+        var temp;                // swap variable
+        var operationCount = 0;  //counter
+
+        // 1. declare and initialize array
+        var someStrings = new Array(ARRAYSIZE);
+        var stringValue = "";    // string to add to array
+        var randomChar = "" ;    // random character to add to string
+        var wordSize;            // the size of each random string
+
+        for(index = 0; index < ARRAYSIZE; index ++) {
+
+            //generate a random word size ( length) between 5 and 15:
+            wordSize = Math.floor(Math.random() * 15) + 5;
+
+            for(index2 = 0; index2 < wordSize; index2++) {
+
+                if (index2 == 0 ) {
+                    //capitalize the first character
+                    //A-Z in ASCII is 65-90
+                    randomChar = Math.random() * (91-65) + 65;
+                }
+                else {
+                    //everything else lower case
+                    //a-z in ASCII is 97-122
+                    randomChar = Math.random() * (123-97) + 97;
+                }
+
+                //append randomChar value to a random string:
+                stringValue += String.fromCharCode(randomChar);
+
+            } // end for index2
+
+            //add stringValue as the next array item :
+            someStrings[index] = stringValue;
+
+            //reset stringValue for next iteration:
+            stringValue = "";
+
+        } // end for index
+
+
+        //view contents BEFORE sorting
+        document.write ('Before sorting:' + BR);
+        for (index = 0; index < ARRAYSIZE; index++) {
+            document.write(someStrings[index] + BR);
+        }
+
+        //implement bubble sort
+        for (maxElement = ARRAYSIZE - 1; maxElement > 0; maxElement--) {
+
+            for (index = 0; index < maxElement; index++) {
+
+                if(someStrings[index] > someStrings[index + 1]) {
+                    // then swap the two values
+                    temp = someStrings[index];
+                    someStrings[index] = someStrings[index + 1];
+                    someStrings[index + 1] = temp;
+                    operationCount++;
+                } //end if
+            } // end for index
+        } // end for max element
+
+        // view contents AFTER sorting
+        document.write(BR + 'Operations: ');
+        document.write(operationCount + BR + BR);
+        document.write ('After sorting:' + BR);
+        for (index = 0; index < ARRAYSIZE; index++) {
+            document.write(someStrings[index] + BR);
+        }
+
+
+    </script>
+</body>
+</html>

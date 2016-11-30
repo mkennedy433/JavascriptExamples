@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>DOM Overview</title>
+    <meta name="description" content="">
+    <meta name="author" content="Your Name">
+    <script type="text/javascript">
+    </script>
+</head>
+<body>
+<form id="Form1">
+    <a name="html">HTML Tutorial</a><br />
+    <a name="css">CSS Tutorial</a><br />
+    <a name="xml">XML Tutorial</a><br />
+    <a name="js">JS Tutorial</a><br />
+</form>
+<form id="Form2">
+    First Name: <input type="text" name="fname" value="[Your Name]" /><br/>
+    Last Name: <input type="text" name="lname" value="[Your Name]" /><br/>
+</form>
+<script type="text/javascript">
+    var BR = "<br>";
+
+    document.write("Dom object code examples:" + BR);
+    document.write(document.title + BR);
+
+    document.title = "My New DOM Title!";
+
+    document.write("# of anchors is: ");
+    document.write(document.anchors.length + BR);
+
+    document.anchors[0].innerHTML = "VBA Tutorial";
+
+    document.write("# of forms is: ");
+    document.write(document.forms.length + BR);
+
+    var x = document.getElementsById("Form2");
+    for (var i = 0; i < x.length; i++)
+    {
+        document.write(x.elements[i].value);
+        document.write(BR);
+    }
+
+    /*var w = window.open();
+    w.document.open();
+    w.document.write("<h3>Howdy!</h3>");*/
+
+    window.location.href = "http://www.w3schools.com";
+</script>
+</body>
+</html>

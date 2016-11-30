@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loop Comparison</title>
+</head>
+<body>
+    <script>
+        //Purpose: to compute the min, max
+        //and avg of a series of user inputs
+
+        var high = 0;       //max
+        var low = 10000;    //min
+        var avg;            //output
+        var total = 0;      //accumulator
+        var input;          //user input
+        var BR = "<br>";
+        var ES = "";
+
+        try {
+            //Validation:
+            //Two different methods of
+            //handling non-numeric user input:
+            //1. Reassign the user input
+            //to a numeric value
+            /*var num_inputs = prompt("Enter number > 0", ES);
+            num_inputs = parseInt(num_inputs);
+            if (isNaN(num_inputs) || num_inputs < 1) {
+                num_inputs = 1;
+            }*/
+
+            //2. Use a validation loop
+            do {
+                var num_inputs = prompt("Enter number > 0", ES);
+                num_inputs = parseInt(num_inputs);
+            } while (isNaN(num_inputs) || num_inputs < 1)
+
+            //For loop:
+            //Exists in most languages, but
+            //generally works the same in all of them
+            /* var count; //counter
+            for (count = 1; count <= num_inputs; count++) {
+                input = prompt("Enter (next) #", "0");
+                input = parseFloat(input);
+                //Compute max:
+                if (input > high) {
+                    high = input;
+                }
+                //Compute min:
+                if (input < low) {
+                    low = input;
+                }
+                //Accumulate:
+                total += input; //t = t + i
+            } //end for */
+
+            //while loop (pre-test)
+            var count = 100; //assign it to init val
+            while (count <= num_inputs) {
+                input = prompt("Enter (next) #", "0");
+                input = parseFloat(input);
+                //Compute max:
+                if (input > high) {
+                    high = input;
+                }
+                //Compute min:
+                if (input < low) {
+                    low = input;
+                }
+                //Accumulate:
+                total += input; //t = t + i
+                //Make sure you ALWAYS
+                //increment your counter:
+                count++;
+                //to avoid an "infinite loop"
+            }//end while
+
+            //do while loop (post-test)
+            /*var count = 1;
+            do {
+                if (count > num_inputs) {
+                    //continue;
+                    //continue skips the
+                    //current iteration
+
+                    break;
+                    //break exits out of the
+                    //loop completely
+                }
+
+                input = prompt("Enter (next) #", "0");
+                input = parseFloat(input);
+                //Compute max:
+                if (input > high) {
+                    high = input;
+                }
+                //Compute min:
+                if (input < low) {
+                    low = input;
+                }
+                //Accumulate:
+                total += input; //t = t + i
+
+                count++; //increment counter
+                //count = count + 1;
+                //count += 1; //all equivalent
+            } while (count <= num_inputs) */
+
+            //Compute average
+            avg = total / num_inputs;
+        } //end try
+        catch (e) {
+            alert(e);
+        }
+
+        //Output:
+        document.write("Highest: " + high + BR);
+        document.write("Lowest: " + low + BR);
+        document.write("Average: " + avg + BR);
+
+    </script>
+</body>
+</html>

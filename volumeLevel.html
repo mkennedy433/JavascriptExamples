@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>volumeLevel.html</title>
+</head>
+<body>
+    <script>
+        /*
+        1.For the same manufacturing process
+        as before (Volume, Speed, Temp, etc.)
+        but will focus on Volume
+
+        2. We need to more closely monitor
+        the volume.
+
+        3. Volume MUST BE between 800 and 1200
+            SHOULD BE between 900 and 1100
+        */
+
+        //variables:
+        var level;      //Liquid level
+        var message;    //Output messaging
+        var ES = "";    //Empty string constant
+
+        //Input
+        level = prompt("Enter volume (liters)", ES);
+        level = parseFloat(level);
+
+        //Handle non-numeric input :(
+        //Use a SINGLE OUTCOME IF STATEMENT:
+        if (isNaN(level)) {
+            level = 0;
+        }
+
+        //Process
+/*        //Use a DUAL OUTCOME IF STATEMENT:
+        if (level <= 0) {
+            //Invalid input
+            message = "Invalid input, try again";
+        } //end if
+        else {
+            //Valid input, but we still need
+            //to evaluate our input.
+
+            //NESTED IF-ELSE-IF STATEMENT
+            if (level < 800) {
+                message = "Level dangerously low";
+            }
+            else if (level < 900) {
+                message = "Level moderately low";
+            }
+            else if (level <= 1100) {
+                message = "Level acceptable";
+            }
+            else if (level <= 1200) {
+                message = "Level moderately high";
+            }
+            else { //default
+                message = "Level dangerously high";
+            } //end if/else/if
+*/
+/*            //NESTED IFS
+            if (level <=1200) {
+                if (level <= 1100) {
+                    if (level < 900) {
+                        if (level < 800) {
+                            message = "Level dangerously low";
+                        }
+                        else {
+                            message = "Level moderately low";
+                        }//<800
+                    }
+                    else {
+                        message = "Level is acceptable";
+                    } //<900
+                }
+                else {
+                    message = "Level is moderately high";
+                } //<=1100
+            }
+            else {
+                message = "Level is dangerously high";
+            } //<=1200
+*/
+
+        switch (true) {
+            case (level < 800) :
+                message = "Level is dangerously low";
+                break;
+            case (level < 900) :
+                message = "Level is moderately low";
+                break;
+            case (level <= 1100) :
+                message = "Level is acceptable";
+                break;
+            case (level <= 1200) :
+                message = "Level is moderately high";
+                break;
+            default : //default is optional for switch
+                message = "Level is dangerously high";
+                break;
+        } //end switch
+
+
+        } //end else
+
+
+        alert(message);
+
+
+    </script>
+</body>
+</html>

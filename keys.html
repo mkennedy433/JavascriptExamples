@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Keys</title>
+	<script>
+		"use strict";
+		//Gobal variables
+		var passedValue = "global";
+
+		function calc(p) {
+			// local (or function) variable
+			var passedValue = p;
+	//		document.getElementById('output').value += p;
+
+			console.log("Local Var: " + passedValue);
+
+			var passedValue2 = function (p)
+			{
+				var passedValue = p.toUpperCase();
+				console.log("More Local: " + passedValue);
+				return passedValue;
+			};
+
+			passedValue = passedValue2(p);
+			console.log("Local pt 2: " + passedValue);
+		}
+	</script>
+</head>
+<body>
+<script>
+	console.log("Global Var: " + passedValue);
+</script>
+	<label for="down">Key Down</label>
+	<input id="down" onkeydown="calc('down')"/>
+<br>
+	<label for="press">Key Press</label>
+	<input id="press" onkeypress="calc('press')"/>
+<br>
+	<label for="up">Key Up</label>
+	<input id="up" onkeyup="calc('up')"/>
+<br>
+	<label for="change">Change</label>
+	<input id="change" onchange="calc('change')"/>
+<br>
+<br>
+	<textarea rows=35 cols=120 id="output"></textarea>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<html>
+<body>
+<script type="text/javascript">
+"use strict";
+
+// Declare variables
+var rentAmt;           // monthly expenditure for rent
+var foodAmt;          // monthly expenditure for food
+var utilityAmt;         // monthly expenditure for utilities
+var otherAmt;         // monthly expenditure for other
+var totExpenses;     // total of monthly expenditures
+var rentPct;            // % of budget spent on rent
+var foodPct;           // % of budget spent on food
+var utilityPct;          // % of budget spent on utilities
+var otherPct;          // % of budget spent on other
+
+// Declare constants
+var ES = "";              // empty string
+var BR = "<br />";    // HTML line break
+var PA = "<p />";     // HTML paragraph break
+
+// Prompt for amounts
+rentAmt = prompt("Enter amount for your rent: ",ES);
+rentAmt = parseFloat(rentAmt);
+foodAmt = prompt("Enter amount for food: ",ES);
+foodAmt = parseFloat(foodAmt);
+utilityAmt = prompt("Enter amount for utilities: ",ES);
+utilityAmt = parseFloat(utilityAmt);
+otherAmt = prompt("Enter amount for everything else: ",ES);
+otherAmt = parseFloat(otherAmt);
+
+// Total amounts and calculate percentages
+totExpenses = rentAmt + foodAmt + utilityAmt + otherAmt;
+rentPct = 100 * (rentAmt / totExpenses);
+foodPct = 100 * (foodAmt / totExpenses);
+utilityPct = 100 * (utilityAmt / totExpenses);
+otherPct = 100 * (otherAmt / totExpenses);
+
+// Display results
+alert("Total Expenses: " + totExpenses + "\n" +
+        "Rent %: " + rentPct + "\n" +
+        "Food %: " + foodPct + "\n" +
+        "Utility %: " + utilityPct + "\n" +
+        "Other %: " + otherPct);
+
+document.write("Total expenses: $" + totExpenses.toFixed(2) + PA);
+document.write("% for rent: " + rentPct.toFixed(1) + BR);
+document.write("% for food: " + foodPct.toFixed(1) + BR);
+document.write("% for utilities: " + utilityPct.toFixed(1) + BR);
+document.write("% for other: " + otherPct.toFixed(1) + PA);
+
+// Thank the user
+document.write("Thank you for using this program!" + BR);
+
+</script>
+</body>
+</html>
